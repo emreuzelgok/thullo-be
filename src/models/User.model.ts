@@ -2,7 +2,6 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Schema, Document, model } from "mongoose";
 
-
 interface IUserBase {
   firstName: string;
   lastName: string;
@@ -10,9 +9,11 @@ interface IUserBase {
   password: string;
   avatar?: string;
   bio?: string;
+  updatedAt: Date;
+  createdAt: Date;
 }
 
-interface IUserDocument extends IUserBase, Document {
+export interface IUserDocument extends IUserBase, Document {
   generateToken: (password: string) => Promise<string>;
   comparePassword: (password: string) => Promise<boolean>;
 }
