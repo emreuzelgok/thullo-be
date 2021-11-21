@@ -1,4 +1,4 @@
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { Schema, Document, model } from "mongoose";
 
@@ -44,4 +44,6 @@ UserSchema.methods.comparePassword = async function(this: IUserDocument, passwor
   return await bcrypt.compare(password, this.password);
 }
 
-export default model<IUserDocument>('User', UserSchema);
+const User = model<IUserDocument>('User', UserSchema);
+
+export default User;

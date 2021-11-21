@@ -1,5 +1,3 @@
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
 import { IUserDocument } from "./User.model";
 import { Schema, Document, model } from "mongoose";
 
@@ -21,4 +19,6 @@ const SessionSchema: Schema<ISessionDocument> = new Schema({
   timestamps: true
 })
 
-export default model<ISessionDocument>('Session', SessionSchema);
+const Session = model<ISessionDocument>('Session', SessionSchema);
+
+export default Session;
