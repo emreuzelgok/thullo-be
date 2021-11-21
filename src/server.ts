@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import connectDB from "./db/connect";
 import log from "./logger";
+import setupRoutes from "./routes";
 
 require('express-async-errors');
 require('dotenv').config();
@@ -23,5 +24,6 @@ app.get('/', (_req, res) => {
 app.listen(port, () => {
   log.info(`server is listening on ${port}`);
   connectDB();
+  setupRoutes(app);
 });
  
