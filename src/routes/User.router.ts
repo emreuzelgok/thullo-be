@@ -31,6 +31,7 @@ const UserRouter = Router();
  *        password:
  *          type: string
  *          description: The User password
+ *          min: 8
  *        avatar:
  *          type: string
  *          description: The User avatar path
@@ -42,8 +43,47 @@ const UserRouter = Router();
  *        - lastName
  *        - email
  *        - password
- *       
+ *        
  */
+
+/**
+ * @swagger
+ *  tags:
+ *    name: Users
+ *    description: Users api
+ */
+
+/**
+ * @swagger
+ * /users:
+ *   post:
+ *     summary: Create a User
+ *     tags: [Users]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/User'
+ *           example:
+ *             firstName: John
+ *             lastName: Doe
+ *             email: john@doe.com
+ *             password: ad12345678
+ *     responses:
+ *       201:
+ *         description: The user successfully created
+ *         content: 
+ *           application/json:
+ *             schema:
+ *               properties:
+ *                 user:
+ *                   $ref: '#/components/schemas/User'
+ *       409:
+ *         description: E-mail already in use.
+ *      
+ */
+
 UserRouter.post('/', validateRequest(createUserSchema), createUserHandler);
 
 export default UserRouter;
