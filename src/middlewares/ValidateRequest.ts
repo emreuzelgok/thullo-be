@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import { StatusCodes } from "http-status-codes";
 import log from "../logger";
 
-const ValidateRequest = (scheme: AnySchema) => async (
+const validateRequest = (scheme: AnySchema) => async (
   req: Request, 
   res: Response,
   next: NextFunction
@@ -23,4 +23,4 @@ const ValidateRequest = (scheme: AnySchema) => async (
   }
 }
 
-export default ValidateRequest;
+export default validateRequest;

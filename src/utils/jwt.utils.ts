@@ -1,8 +1,6 @@
 import jwt from "jsonwebtoken";
-import { ISessionDocument } from "../models/Session.model";
-import { IUserDocument } from "../models/User.model";
 
-export function sign(
+export function jwtSign(
   object: Object,
   options?: jwt.SignOptions | undefined
 ) {
@@ -10,7 +8,7 @@ export function sign(
 }
 
 
-export function decode(token: string) {
+export function jwtVerify(token: string) {
   try {
     const decoded: any = jwt.verify(token, process.env.JWT_KEY);
     return {
