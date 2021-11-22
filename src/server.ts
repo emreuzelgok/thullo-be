@@ -16,7 +16,7 @@ const app: Application = express();
 const port: number = parseInt(process.env.PORT);
 
 const specs = swaggerJSDoc(swaggerOptions);
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
+app.use("/docs", swaggerUI.serve, swaggerUI.setup(specs));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
