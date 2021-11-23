@@ -8,7 +8,7 @@ const authorize = async (
   next: NextFunction,
 ) => {
   // get access token
-  const accessToken = req.headers?.authorization.replace(/^Bearer\s/, "");
+  const accessToken = req.headers?.authorization?.replace(/^Bearer\s/, "");
   // get refresh token
   let refreshToken = req.headers["x-refresh"];
 
