@@ -38,6 +38,10 @@ const UserRouter = Router();
  *        bio:
  *          type: string
  *          description: The User biography
+ *        createdAt:
+ *          type: data-time
+ *        updatedAt:
+ *          type: data-time
  *      required: 
  *        - firstName
  *        - lastName
