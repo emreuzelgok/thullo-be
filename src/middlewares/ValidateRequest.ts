@@ -1,7 +1,7 @@
 import { AnySchema } from "yup";
 import { Request, Response, NextFunction } from "express";
 import { StatusCodes } from "http-status-codes";
-import log from "../logger";
+import log from "../utils/logger";
 
 const validateRequest = (scheme: AnySchema) => async (
   req: Request, 

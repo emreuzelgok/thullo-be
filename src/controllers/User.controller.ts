@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { createUser, findUser } from "../services/User.service";
 import { StatusCodes } from "http-status-codes";
-import log from "../logger";
+import log from "../utils/logger";
 
 export async function createUserHandler(req: Request, res: Response) {
   try {
